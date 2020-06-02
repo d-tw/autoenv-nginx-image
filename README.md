@@ -29,6 +29,33 @@ Will give you the following output:
 {"APP_MY_VAR": "foo"}
 ```
 
+If you run `curl` in verbose mode, you can see that the `Content-Type` is set to `application/json`.
+
+```sh
+% curl -v http://localhost/__autoenv
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 80 (#0)
+> GET /__autoenv HTTP/1.1
+> Host: localhost
+> User-Agent: curl/7.64.1
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.19.0
+< Date: Tue, 02 Jun 2020 19:50:29 GMT
+< Content-Type: application/json
+< Content-Length: 22
+< Last-Modified: Tue, 02 Jun 2020 19:50:25 GMT
+< Connection: keep-alive
+< ETag: "5ed6ad81-16"
+< Accept-Ranges: bytes
+< 
+{"APP_MY_VAR": "foo"}
+* Connection #0 to host localhost left intact
+* Closing connection 0
+```
+
 ## Usage
 
 ```sh
