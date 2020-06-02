@@ -23,7 +23,7 @@ docker-build: ## Build the docker image
 	docker tag $(APP_NAME):$(APP_VERSION) $(APP_NAME):latest
 
 docker-run: docker-build ## Build and run the docker container
-	docker run --rm --name $(APP_NAME) -p $(APP_PORT):$(APP_PORT) $(APP_NAME):latest
+	docker run --rm --name $(APP_NAME) -p $(APP_PORT):$(APP_PORT) -it $(APP_NAME):latest
 
 docker-console: docker-build ## Run a bash console in the docker container
 	docker run --rm --name $(APP_NAME) -p $(APP_PORT):$(APP_PORT) -it --entrypoint /bin/bash $(APP_NAME):latest
