@@ -1,5 +1,5 @@
 # autoenv-nginx-image
-![ci-badge](https://github.com/outcome-co/autoenv-nginx-image/workflows/Check/badge.svg) ![version-badge](https://img.shields.io/badge/version-0.1.0-brightgreen)
+![ci-badge](https://github.com/outcome-co/autoenv-nginx-image/workflows/Check/badge.svg) ![version-badge](https://img.shields.io/badge/version-0.2.0-brightgreen)
 
 Description TBD
 
