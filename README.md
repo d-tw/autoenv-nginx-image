@@ -1,5 +1,5 @@
 # autoenv-nginx-image
-![ci-badge](https://github.com/outcome-co/autoenv-nginx-image/workflows/Check/badge.svg) ![version-badge](https://img.shields.io/badge/version-0.2.0-brightgreen)
+![ci-badge](https://github.com/outcome-co/autoenv-nginx-image/workflows/Check/badge.svg) ![version-badge](https://img.shields.io/badge/version-1.0.0-brightgreen)
 
 autoenv-nginx is a Docker image that can be used as a base image for front-end applications.
 
