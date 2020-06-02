@@ -60,7 +60,7 @@ COPY --from=build-stage /app/dist /app
 
 By default, the HTTP path is configured to `/__autoenv`, but this can be changed by setting the `AUTOENV_HTTP_PATH` environment variable when launching the container.
 
-**Exposed Environemnt Variables**
+**Exposed Environment Variables**
 
 By default, all of the environment variables with the prefix `APP_` will be exposed, but this can be changed by setting the `AUTOENV_PREFIX` environment variable when launching the container.
 
