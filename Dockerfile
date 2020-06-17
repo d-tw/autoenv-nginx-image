@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ARG PORT=80
+ARG PORT=8080
 ARG AUTOENV_OUTPUT_DIR=/usr/share/nginx/autoenv
 ARG AUTOENV_OUTPUT_FILENAME=autoenv.json
 ARG AUTOENV_HTTP_PATH=/__autoenv
