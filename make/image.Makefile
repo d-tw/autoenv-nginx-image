@@ -8,7 +8,7 @@ APP_NAME = autoenv-nginx
 APP_VERSION = $(shell cat VERSION)
 
 ifndef APP_PORT
-APP_PORT = 80
+APP_PORT = 8080
 endif
 
 DOCKER_NAMESPACE = outcomeco
