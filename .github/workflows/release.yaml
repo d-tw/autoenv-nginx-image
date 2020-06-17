@@ -17,12 +17,8 @@ jobs:
           with:
             fetch-depth: 0
 
-        - name: Get docker info
-          id: docker_info
-          run: make docker-info
-
         - name: Authenticate with Docker registry
-          run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin ${{ steps.docker_info.outputs.docker_registry }}
+          run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
         - name: Build & push
           run: make docker-push
