@@ -30,4 +30,6 @@ RUN pip install -r requirements.txt
 COPY ./bin ./bin
 COPY ./templates ./templates
 
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "/autoenv/bin/healthcheck.sh" ]
+
 ENTRYPOINT [ "/autoenv/bin/entrypoint.sh" ]
