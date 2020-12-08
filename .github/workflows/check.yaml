@@ -24,7 +24,7 @@ jobs:
             failOnWarnings: true
 
     test_build:
-      name: Test Docker build
+      name: Test Docker
       runs-on: ubuntu-latest
 
       steps:
