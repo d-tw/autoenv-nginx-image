@@ -16,7 +16,7 @@ ENV NGINX_CONF_PATH=${NGINX_CONF_PATH}
 
 ENV TEMPLATE_DIR=/autoenv/templates
 
-RUN apk add bash python3
+RUN apk add --no-cache bash=5.0.17-r0 python3=3.8.5-r0
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3 ./get-pip.py
 
 RUN mkdir ${AUTOENV_OUTPUT_DIR}
@@ -29,5 +29,7 @@ RUN pip install -r requirements.txt
 
 COPY ./bin ./bin
 COPY ./templates ./templates
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "/autoenv/bin/healthcheck.sh" ]
 
 ENTRYPOINT [ "/autoenv/bin/entrypoint.sh" ]
