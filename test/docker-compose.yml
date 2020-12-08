@@ -1,0 +1,93 @@
+version: "3"
+
+services:
+  # HTTP container
+  autoenv-default:
+    environment:
+      APP_VAR_1: value_1
+      APP_VAR_2: value_2
+      PORT: 80
+    image: ${AUTOENV_IMAGE}
+    networks:
+      - default
+    expose:
+      - 80
+
+  autoenv-port-test:
+    environment:
+      APP_VAR_1: value_1
+      APP_VAR_2: value_2
+      PORT: 8080
+    image: ${AUTOENV_IMAGE}
+    networks:
+      - default
+    expose:
+      - 8080
+  
+  autoenv-custom:
+    environment:
+      AUTOENV_HTTP_PATH: /__myvars
+      AUTOENV_PREFIX: MYVAR_
+      APP_VAR_1: value_1
+      APP_VAR_2: value_2
+      MYVAR_1: my_value_1
+      MYVAR_2: my_value_2
+      PORT: 80
+    image: ${AUTOENV_IMAGE}
+    networks:
+      - default
+    expose:
+      - 80
+
+  test_runner:
+    image: alpine
+    depends_on:
+      - autoenv-default
+      - autoenv-port-test
+      - autoenv-custom
+    networks:
+      - default
+    volumes:
+      - .:/work
+    working_dir: /work
+    command: /work/test.sh
+
+  # Test runner container, used to run test suite.
+  # test_runner:
+  #   environment:
+  #     DB_DATABASE: postgres
+  #     DB_USERNAME: postgres
+  #     DB_PASSWORD: postgres
+  #     DB_SERVER: db
+  #     DB_PORT: 5432
+  #     IDP_PUBLIC_KEY:
+  #     APP_PUBLIC_KEY:
+  #     APP_PRIVATE_KEY:
+  #     APP_ENV: e2e
+  #     TEST_RUNNER: 1
+  #     TEST_CLIENT_MODE: native
+  #     TEST_CLIENT_PORT: ${APP_PORT}
+  #     TEST_CLIENT_HOST: api
+  #     PACT_PROVIDER_URL: http://api:${APP_PORT}
+  #     E2E_TEST_CONTEXT:
+  #     PACT_PROVIDER_NAME:
+  #     PACT_PROVIDER_VERSION:
+  #     PACT_URL:
+  #     PACT_PUBLISH_VERIFICATION_RESULTS:
+  #     PACT_CONSUMER_NAME:
+  #     PACT_CONSUMER_VERSION_TAGS:
+  #     PACT_BROKER_URL:
+  #     PACT_BROKER_AUTH:
+  #     TEST_TARGET:
+  #     PULL_REQUEST_TITLE:
+  #     BREAKING_CHANGE:
+  #   depends_on:
+  #     - pact_stub_service
+  #   image: ${TEST_RUNNER_IMAGE}
+  #   networks:
+  #     - default
+  #   entrypoint: /usr/bin/env
+  #   command: >
+  #     python test/entrypoint_e2e.py
+  #   volumes:
+  #     - ./pacts/consumers:/pacts/
