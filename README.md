@@ -1,4 +1,5 @@
 # autoenv-nginx-image
+
 ![ci-badge](https://github.com/outcome-co/autoenv-nginx-image/workflows/Checks/badge.svg) ![version-badge](https://img.shields.io/badge/version-1.1.1-brightgreen)
 
 autoenv-nginx is a Docker image that can be used as a base image for front-end applications.
@@ -21,12 +22,12 @@ And running the following `curl` command:
 
 ```sh
 curl http://localhost/__autoenv
-````
+```
 
 Will give you the following output:
 
 ```json
-{"APP_MY_VAR": "foo"}
+{ "APP_MY_VAR": "foo" }
 ```
 
 If you run `curl` in verbose mode, you can see that the `Content-Type` is set to `application/json`.
@@ -40,7 +41,7 @@ If you run `curl` in verbose mode, you can see that the `Content-Type` is set to
 > Host: localhost
 > User-Agent: curl/7.64.1
 > Accept: */*
-> 
+>
 < HTTP/1.1 200 OK
 < Server: nginx/1.19.0
 < Date: Tue, 02 Jun 2020 19:50:29 GMT
@@ -50,7 +51,7 @@ If you run `curl` in verbose mode, you can see that the `Content-Type` is set to
 < Connection: keep-alive
 < ETag: "5ed6ad81-16"
 < Accept-Ranges: bytes
-< 
+<
 {"APP_MY_VAR": "foo"}
 * Connection #0 to host localhost left intact
 * Closing connection 0
@@ -96,6 +97,7 @@ By default, all of the environment variables with the prefix `APP_` will be expo
 By default, nginx listens on port 80, but this can be changed by setting the `PORT` environment variable when launching the container.
 
 ### Example
+
 ```sh
 docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -it outcomeco/autoenv-nginx:latest
 ```

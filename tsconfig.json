@@ -1,0 +1,40 @@
+{
+    "compileOnSave": false,
+    "ts-node": {
+        "files": true
+    },
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "useUnknownInCatchVariables": true,
+        "noFallthroughCasesInSwitch": false,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "CommonJS",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
+        "allowJs": true,
+        "checkJs": true,
+        "strict": true
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": ["src/**/*.ts", "types/*.ts"]
+}
