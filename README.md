@@ -13,7 +13,7 @@ This Docker image aims to solve that issue by exposing a subset of the container
 Running the docker image with the following command:
 
 ```sh
-docker run --rm --name autoenv-nginx -p 80:80 -e APP_MY_VAR=foo -it outcomeco/autoenv-nginx:latest
+docker run --rm --name autoenv-nginx -p 80:80 -e APP_MY_VAR=foo -it d-tw/autoenv-nginx:latest
 ```
 
 And running the following `curl` command:
@@ -58,7 +58,7 @@ If you run `curl` in verbose mode, you can see that the `Content-Type` is set to
 ## Usage
 
 ```sh
-docker pull outcomeco/autoenv-nginx
+docker pull d-tw/autoenv-nginx
 ```
 
 ## Hosting front-end applications
@@ -75,7 +75,7 @@ RUN npm install
 COPY ./ .
 RUN npm run build
 
-FROM outcomeco/autoenv-nginx as production-stage
+FROM d-tw/autoenv-nginx as production-stage
 RUN mkdir /app
 COPY --from=build-stage /app/dist /app
 ```
@@ -97,7 +97,7 @@ By default, nginx listens on port 80, but this can be changed by setting the `PO
 ### Example
 
 ```sh
-docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -it outcomeco/autoenv-nginx:latest
+docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -it d-tw/autoenv-nginx:latest
 ```
 
 ## Development
