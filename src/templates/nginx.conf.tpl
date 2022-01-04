@@ -31,7 +31,7 @@ http {
     }
 
     server {
-        listen {{port}};
+        listen <%= port %>;
 
         server_name localhost;
 
@@ -40,8 +40,8 @@ http {
 
         expires $expires;
 
-        location {{autoenv_http_path}} {
-            alias {{autoenv_fs_path}};
+        location <%= autoenvHttpPath %> {
+            alias <%= autoenvFsPath %>;
             default_type application/json;
         }
 

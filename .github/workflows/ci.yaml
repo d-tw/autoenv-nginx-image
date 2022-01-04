@@ -1,0 +1,80 @@
+name: Continuous Integration
+
+on:
+    # For pull requests
+    pull_request:
+        types: [opened, synchronize, reopened, ready_for_review, edited]
+        branches:
+            - master
+
+    # When we merge into master
+    push:
+        branches:
+            - master
+
+# Create a concurrency group based on the event name (push/pull_request) and the branch name
+concurrency: ci-${{ github.event_name }}-${{ github.ref_name }}
+
+env:
+    # Deactivated husky in CI
+    HUSKY: 0
+    YARN_CACHE_FOLDER: .yarn/cache
+    node_version: 14.x
+
+jobs:
+    checks:
+        name: Run checks
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v2.3.4
+              with:
+                  ref: ${{ github.sha }}
+                  fetch-depth: 0
+                  token: ${{ secrets.CI }}
+
+            - name: Lint commit messages
+              uses: wagoid/commitlint-github-action@v3.1.4
+              with:
+                  failOnWarnings: true
+
+            - uses: amannn/action-semantic-pull-request@v3.4.0
+              if: github.event_name == 'pull_request'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Use Node.js
+              uses: actions/setup-node@v2.1.5
+              with:
+                  node-version: ${{ env.node_version }}
+
+            - name: Configure yarn cache
+              uses: actions/cache@v2.1.6
+              with:
+                  path: ${{ env.YARN_CACHE_FOLDER }}
+                  key: yarn-lock-${{ hashFiles('./yarn.lock') }}
+                  restore-keys: |
+                      yarn-lock-
+
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Run formatter
+              run: yarn format:check
+
+            - name: Run linter
+              run: yarn lint
+
+            - name: Run builds
+              run: yarn build
+
+            - name: Run docker builds
+              run: yarn build:container
+
+            - name: Run semantic-release
+              run: yarn semantic-release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.CI }}
+                  DOCKER_TOKEN: ${{ secrets.CI }}
+                  DOCKER_USERNAME: d-tw
