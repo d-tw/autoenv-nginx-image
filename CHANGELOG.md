@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/d-tw/autoenv-nginx-image/compare/v1.2.1...v1.2.2) (2022-01-04)
+
+
+### Bug Fixes
+
+* correct release tag ([6ee0a81](https://github.com/d-tw/autoenv-nginx-image/commit/6ee0a81d563c195884e35cbab23d2756185cff18))
+
 ## [1.2.1](https://github.com/d-tw/autoenv-nginx-image/compare/v1.2.0...v1.2.1) (2022-01-04)
 
 # [1.2.0](https://github.com/d-tw/autoenv-nginx-image/compare/v1.1.1...v1.2.0) (2022-01-04)
