@@ -1,3 +1,5 @@
+## [1.2.1](https://github.com/d-tw/autoenv-nginx-image/compare/v1.2.0...v1.2.1) (2022-01-04)
+
 # [1.2.0](https://github.com/d-tw/autoenv-nginx-image/compare/v1.1.1...v1.2.0) (2022-01-04)
 
 
