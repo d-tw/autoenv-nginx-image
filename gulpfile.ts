@@ -41,9 +41,10 @@ const getGitInfo = async (): Promise<GitInfo> => {
         }
     } else {
         const hash = (await fs.readFile('.git/' + rev.substring(5))).toString().trim()
+        const branch = rev.substring(16)
         return {
             hash,
-            branch: rev,
+            branch,
         }
     }
 }
