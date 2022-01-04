@@ -70,7 +70,7 @@ jobs:
               run: yarn build
 
             - name: Run docker builds
-              run: yarn build-container
+              run: yarn build:container
 
             - name: Run semantic-release
               run: yarn semantic-release
