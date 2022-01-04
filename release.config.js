@@ -1,4 +1,4 @@
-const buildContainersCmd = 'yarn gulp build-container'
+const buildContainersCmd = 'yarn gulp push-container'
 
 module.exports = {
     dryRun: false,
