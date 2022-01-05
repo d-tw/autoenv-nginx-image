@@ -9,19 +9,32 @@ import fs from 'fs/promises'
 
 export const buildWebpack = async () => {
     return new Promise<void>((resolve, reject) => {
-        const compiler = webpack(webpackConfig)
-        compiler.run(err => {
-            compiler.close(err => {
-                if (err !== null) {
-                    reject(err)
-                }
+        webpack(webpackConfig, (err, stats) => {
+            if (err) {
+                console.error(err.stack || err)
+                reject(err)
+                return
+            }
+
+            if (stats === undefined) {
+                reject(new Error('stats is undefined'))
+                return
+            }
+
+            const out = stats.toString({
+                colors: true,
             })
 
-            if (err !== null) {
-                reject(err)
+            if (stats.hasErrors()) {
+                console.error(out)
+                reject(new Error())
+                return
+            } else if (stats.hasWarnings()) {
+                console.warn(out)
             } else {
-                resolve()
+                console.log(out)
             }
+            resolve()
         })
     })
 }
