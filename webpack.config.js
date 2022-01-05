@@ -1,6 +1,7 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PermissionsOutputPlugin = require('webpack-permissions-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -19,8 +20,10 @@ const config = {
         rules: [
             {
                 test: /\.ts$/,
-                use: 'ts-loader',
                 exclude: /node_modules/,
+                use: {
+                    loader: 'swc-loader',
+                },
             },
         ],
     },
@@ -49,6 +52,7 @@ const config = {
                 },
             ],
         }),
+        new ForkTsCheckerWebpackPlugin(),
     ],
     optimization: {
         splitChunks: {
