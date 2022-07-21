@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-RUN apk add --update --no-cache bash=5.1.8-r0 nodejs=16.13.1-r0
+RUN apk add --update --no-cache bash=5.1.16-r2 nodejs=16.16.0-r0
 
 ARG PORT=8080
 ARG AUTOENV_OUTPUT_DIR=/usr/share/nginx/autoenv
