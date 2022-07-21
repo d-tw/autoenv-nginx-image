@@ -1,7 +1,7 @@
 user  nginx;
 
 worker_processes  1;
-error_log /var/log/nginx/error.log warn;
+error_log /dev/stderr warn;
 pid /var/run/nginx.pid;
 
 events {
@@ -12,11 +12,9 @@ http {
     include /etc/nginx/mime.types;
     default_type application/octet-stream;
 
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                        '$status $body_bytes_sent "$http_referer" '
-                        '"$http_user_agent" "$http_x_forwarded_for"';
+    log_format structured '{"level": "INFO", "timestamp": "$time_iso8601", "remote_addr": "$remote_addr", "message": "$request", "status": $status, "body_bytes_sent": $body_bytes_sent, "http_referer": "$http_referer", "http_user_agent": "$http_user_agent"}';
 
-    access_log /var/log/nginx/access.log  main;
+    access_log /dev/stdout structured;
 
     sendfile on;
     keepalive_timeout 65;
