@@ -1089,10 +1089,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.178":
-  version: 4.14.178
-  resolution: "@types/lodash@npm:4.14.178"
-  checksum: a69a04a60bfc5257c3130a554b4efa0c383f0141b7b3db8ab7cf07ad2a46ea085fce66d0242da41da7e5647b133d5dfb2c15add9cbed8d7fef955e4a1e5b3128
+"@types/lodash@npm:^4.17.16":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 915618c5735b10007e0ed7d06fdce6b344f88fc721d492b189a69064bfd046d2382e1ba61d683eeb61cad60ca0286cd110e6fe0fa4ab2e99066a40478376831d
   languageName: node
   linkType: hard
 
@@ -2074,7 +2074,7 @@ __metadata:
     "@swc/core": ^1.2.126
     "@swc/helpers": ^0.3.2
     "@types/gulp": ^4.0.9
-    "@types/lodash": ^4.14.178
+    "@types/lodash": ^4.17.16
     "@types/node": ^17.0.7
     "@types/rimraf": ^3.0.2
     "@typescript-eslint/eslint-plugin": ^5.9.0
