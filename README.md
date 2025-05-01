@@ -99,7 +99,3 @@ By default, nginx listens on port 80, but this can be changed by setting the `PO
 ```sh
 docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -it ghcr.io/d-tw/autoenv-nginx:latest
 ```
-
-## Development
-
-Remember to run `./pre-commit.sh` when you clone the repository.
