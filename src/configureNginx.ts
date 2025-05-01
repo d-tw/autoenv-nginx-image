@@ -13,6 +13,7 @@ const main = async () => {
         port: process.env.PORT,
         autoenvHttpPath: process.env.AUTOENV_HTTP_PATH,
         autoenvFsPath: process.env.AUTOENV_FS_PATH,
+        environment: process.env.ENVIRONMENT,
     }
 
     if (configPath === undefined) {

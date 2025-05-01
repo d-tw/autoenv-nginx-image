@@ -44,6 +44,7 @@ http {
         }
 
         location / {
+            add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
             root /app;
             index index.html;
             try_files $uri $uri/ /index.html;
