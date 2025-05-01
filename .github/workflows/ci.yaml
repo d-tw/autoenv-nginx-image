@@ -32,7 +32,7 @@ jobs:
               with:
                   ref: ${{ github.sha }}
                   fetch-depth: 0
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.CI }}
 
             - name: Lint commit messages
               uses: wagoid/commitlint-github-action@v6.2.1
