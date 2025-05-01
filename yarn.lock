@@ -2045,7 +2045,7 @@ __metadata:
     typescript: ^4.5.4
     webpack: ^5.65.0
     webpack-cli: ^4.9.1
-    webpack-permissions-plugin: ^1.0.8
+    webpack-permissions-plugin: ^1.0.10
   languageName: unknown
   linkType: soft
 
@@ -2178,6 +2178,15 @@ __metadata:
     balanced-match: ^1.0.0
     concat-map: 0.0.1
   checksum: faf34a7bb0c3fcf4b59c7808bc5d2a96a40988addf2e7e09dfbb67a2251800e0d14cd2bfc1aa79174f2f5095c54ff27f46fb1289fe2d77dac755b5eb3434cc07
+  languageName: node
+  linkType: hard
+
+"brace-expansion@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "brace-expansion@npm:2.0.1"
+  dependencies:
+    balanced-match: ^1.0.0
+  checksum: a61e7cd2e8a8505e9f0036b3b6108ba5e926b4b55089eeb5550cd04a471fe216c96d4fe7e4c7f995c728c554ae20ddfc4244cad10aef255e72b62930afd233d1
   languageName: node
   linkType: hard
 
@@ -3750,17 +3759,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"filehound@npm:^1.17.4":
-  version: 1.17.5
-  resolution: "filehound@npm:1.17.5"
+"filehound@npm:^1.17.6":
+  version: 1.17.6
+  resolution: "filehound@npm:1.17.6"
   dependencies:
     bluebird: ^3.7.2
     file-js: 0.3.0
     lodash: ^4.17.21
-    minimatch: ^3.0.4
+    minimatch: ^5.0.0
     moment: ^2.29.1
     unit-compare: ^1.0.1
-  checksum: 1574eb52f25a113505a7ad84cf90aa3449a2289755bc32d73c04688e9a234de4a1323d597fa1bae81d94fd4c2bfc06fb999523fd8a8c9f468ac5f63d268a911b
+  checksum: 2fd979a802304c6a28acc5d533efabfa06d683375d8fe1595734a2231b3d3bbfc2ba034260501ad62c9d67e2bb945e17754c200e5bd691cba5803489e6ec4579
   languageName: node
   linkType: hard
 
@@ -5824,6 +5833,15 @@ __metadata:
   dependencies:
     brace-expansion: ^1.1.7
   checksum: 66ac295f8a7b59788000ea3749938b0970344c841750abd96694f80269b926ebcafad3deeb3f1da2522978b119e6ae3a5869b63b13a7859a456b3408bd18a078
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^5.0.0":
+  version: 5.1.6
+  resolution: "minimatch@npm:5.1.6"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 7564208ef81d7065a370f788d337cd80a689e981042cb9a1d0e6580b6c6a8c9279eba80010516e258835a988363f99f54a6f711a315089b8b42694f5da9d0d77
   languageName: node
   linkType: hard
 
@@ -8790,12 +8808,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-permissions-plugin@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "webpack-permissions-plugin@npm:1.0.8"
+"webpack-permissions-plugin@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "webpack-permissions-plugin@npm:1.0.10"
   dependencies:
-    filehound: ^1.17.4
-  checksum: 002e7a40865c7fbe5e4c00c3ad1f35af4bbc6c42c32787a9cdaad1fc3bbbe1286ee046c0e843e3f676fa616e1650d0f868ed6e947ed2ae83b2c01e2d09c9d6d5
+    filehound: ^1.17.6
+  checksum: cb9bb0260fb8b9e6f23d9988406db685a4a7ea76ad43484ed34953f3afe94000dcf261ab90e668f9303c35f253a4d1de55c3a73d43602a8ecb6354436e079ed8
   languageName: node
   linkType: hard
 
