@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.0.0...v2.1.0) (2025-05-01)
+
+
+### Features
+
+* add env header cookie ([30ac60a](https://github.com/d-tw/autoenv-nginx-image/commit/30ac60ab2dcdcc5e9978eb2721bbdabc90407243))
+
 # [2.0.0](https://github.com/d-tw/autoenv-nginx-image/compare/v1.2.2...v2.0.0) (2022-07-21)
 
 
