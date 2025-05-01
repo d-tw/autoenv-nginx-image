@@ -31,8 +31,7 @@ jobs:
               uses: actions/checkout@v4.2.2
               with:
                   ref: ${{ github.sha }}
-                  fetch-depth: 0
-                  token: ${{ secrets.CI }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Lint commit messages
               uses: wagoid/commitlint-github-action@v3.1.4
