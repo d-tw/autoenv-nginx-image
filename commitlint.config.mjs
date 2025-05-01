@@ -1,9 +1,9 @@
-const conventional = require('@commitlint/config-conventional')
+import conventional from '@commitlint/config-conventional'
 
 const types = /** @type {string[]} */ (conventional.rules['type-enum'][2])
 
 // commitlint.config.js
-module.exports = {
+export default {
     extends: ['@commitlint/config-conventional'],
     rules: {
         'body-max-line-length': [1, 'always', 250],
