@@ -41,6 +41,9 @@ http {
         location <%= autoenvHttpPath %> {
             alias <%= autoenvFsPath %>;
             default_type application/json;
+            add_header Cache-Control "no-cache, no-store, must-revalidate";
+            add_header Pragma "no-cache";
+            add_header Expires "0";
         }
 
         location / {
@@ -48,6 +51,14 @@ http {
             root /app;
             index index.html;
             try_files $uri $uri/ /index.html;
+        }
+
+        location = /index.html {
+            root /app;
+            add_header Cache-Control "no-cache, no-store, must-revalidate";
+            add_header Pragma "no-cache";
+            add_header Expires "0";
+            add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
         }
 
         error_page   500 502 503 504  /50x.html;
