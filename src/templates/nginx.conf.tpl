@@ -46,19 +46,26 @@ http {
             add_header Expires "0";
         }
 
-        location / {
-            add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
+        # Handle static assets - return 404 if not found
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|json|webp|avif|map)$ {
             root /app;
-            index index.html;
-            try_files $uri $uri/ /index.html;
+            try_files $uri =404;
         }
 
+        # Handle exact index.html requests
         location = /index.html {
             root /app;
             add_header Cache-Control "no-cache, no-store, must-revalidate";
             add_header Pragma "no-cache";
             add_header Expires "0";
             add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
+        }
+
+        # Handle SPA routes - everything else falls back to index.html
+        location / {
+            add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
+            root /app;
+            try_files $uri /index.html;
         }
 
         error_page   500 502 503 504  /50x.html;
