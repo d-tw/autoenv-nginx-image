@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/d-tw/autoenv-nginx-image/compare/v2.1.0...v2.1.1) (2025-12-12)
+
+
+### Bug Fixes
+
+* caching ([82bdf7c](https://github.com/d-tw/autoenv-nginx-image/commit/82bdf7cf8e2678460e4976fd1f33fa7a39cb37b7))
+* deps ([96451fb](https://github.com/d-tw/autoenv-nginx-image/commit/96451fb1429ebb848bfc126df3b74431fa14832d))
+* improved location handling ([7a49d02](https://github.com/d-tw/autoenv-nginx-image/commit/7a49d020d0877be8ebf22be4d5f311cf9c855045))
+
 # [2.1.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.0.0...v2.1.0) (2025-05-01)
 
 
