@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.1.1...v2.2.0) (2025-12-22)
+
+
+### Features
+
+* inject config into index.html ([db7404d](https://github.com/d-tw/autoenv-nginx-image/commit/db7404d4b26a3097622576d8b62ea6e34d72d0ea))
+
 ## [2.1.1](https://github.com/d-tw/autoenv-nginx-image/compare/v2.1.0...v2.1.1) (2025-12-12)
 
 
