@@ -5,6 +5,9 @@ set -e
 # First, generate the env file
 node /autoenv/autoenv.js > ${AUTOENV_FS_PATH}
 
+# Then, inject config into HTML files
+node /autoenv/injectConfig.js
+
 # Then, generate the ngnix config
 node /autoenv/configureNginx.js
 

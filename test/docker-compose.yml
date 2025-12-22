@@ -39,12 +39,60 @@ services:
         expose:
             - 80
 
+    # HTML injection test containers
+    autoenv-html-default:
+        environment:
+            APP_VAR_1: value_1
+            APP_VAR_2: value_2
+            PORT: 80
+            AUTOENV_INJECT_HTML: true
+        image: ${AUTOENV_IMAGE}
+        networks:
+            - default
+        expose:
+            - 80
+        volumes:
+            - ./html_templates/index.html:/app/index.html
+
+    autoenv-html-custom:
+        environment:
+            AUTOENV_PREFIX: MYVAR_
+            AUTOENV_GLOBAL_VAR: window.myCustomConfig
+            MYVAR_1: my_value_1
+            MYVAR_2: my_value_2
+            PORT: 80
+            AUTOENV_INJECT_HTML: true
+        image: ${AUTOENV_IMAGE}
+        networks:
+            - default
+        expose:
+            - 80
+        volumes:
+            - ./html_templates/custom.html:/app/index.html
+
+    autoenv-html-disabled:
+        environment:
+            APP_VAR_1: value_1
+            APP_VAR_2: value_2
+            PORT: 80
+            AUTOENV_INJECT_HTML: false
+        image: ${AUTOENV_IMAGE}
+        networks:
+            - default
+        expose:
+            - 80
+        volumes:
+            - ./html_templates/disabled.html:/app/index.html
+
     test_runner:
         image: alpine
         depends_on:
             - autoenv-default
             - autoenv-port-test
             - autoenv-custom
+            - autoenv-html-default
+            - autoenv-html-custom
+            - autoenv-html-disabled
         networks:
             - default
         volumes:

@@ -6,9 +6,14 @@ autoenv-nginx is a Docker image that can be used as a base image for front-end a
 
 Server-side applications that run Docker images rely heavily on environment variables to provide runtime configuration, but front-end applications can't use this model as the code runs client-side, where the environment variables are not accessible. This often leads to creating specific front-end builds for different environments, which multiplies the number of builds and introduces unnecessary coupling between builds and configration.
 
-This Docker image aims to solve that issue by exposing a subset of the container's environment variables as a JSON document on a static HTTP path, allowing the front-end application to load runtime configuration.
+This Docker image aims to solve that issue by exposing a subset of the container's environment variables in two ways:
+
+1. **JSON Endpoint**: As a JSON document on a static HTTP path for async loading
+2. **HTML Injection**: By injecting configuration directly into index.html files as a global JavaScript variable for immediate access
 
 ### Example
+
+#### JSON Endpoint Usage
 
 Running the docker image with the following command:
 
@@ -28,31 +33,45 @@ Will give you the following output:
 { "APP_MY_VAR": "foo" }
 ```
 
-If you run `curl` in verbose mode, you can see that the `Content-Type` is set to `application/json`.
+#### HTML Injection Usage
 
-```sh
-% curl -v http://localhost/__autoenv
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 80 (#0)
-> GET /__autoenv HTTP/1.1
-> Host: localhost
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Server: nginx/1.19.0
-< Date: Tue, 02 Jun 2020 19:50:29 GMT
-< Content-Type: application/json
-< Content-Length: 22
-< Last-Modified: Tue, 02 Jun 2020 19:50:25 GMT
-< Connection: keep-alive
-< ETag: "5ed6ad81-16"
-< Accept-Ranges: bytes
-<
-{"APP_MY_VAR": "foo"}
-* Connection #0 to host localhost left intact
-* Closing connection 0
+When you place an `index.html` file in your `/app` directory, the configuration will automatically be injected as a global JavaScript variable. For example:
+
+**Original index.html:**
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My App</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+    </body>
+</html>
+```
+
+**After injection:**
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            window.__CONFIG__ = { APP_MY_VAR: 'foo' }
+        </script>
+        <title>My App</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+    </body>
+</html>
+```
+
+Now your JavaScript can immediately access the configuration without any network requests:
+
+```javascript
+console.log(window.__CONFIG__.APP_MY_VAR) // "foo"
 ```
 
 ## Usage
@@ -94,8 +113,16 @@ By default, all of the environment variables with the prefix `APP_` will be expo
 
 By default, nginx listens on port 80, but this can be changed by setting the `PORT` environment variable when launching the container.
 
+**HTML Injection**
+
+HTML injection can be controlled with the following environment variables:
+
+- `AUTOENV_INJECT_HTML`: Enable or disable HTML injection (default: `true`)
+- `AUTOENV_GLOBAL_VAR`: Name of the global JavaScript variable (default: `window.__CONFIG__`)
+- `AUTOENV_HTML_SEARCH_PATH`: Directory to search for index.html files (default: `/app`)
+
 ### Example
 
 ```sh
-docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -it ghcr.io/d-tw/autoenv-nginx:latest
+docker run --rm --name autoenv-nginx -p 80:1234 -e PORT=1234 -e AUTOENV_PREFIX=FOO_ -e AUTOENV_HTTP_PATH=/__foovars -e AUTOENV_GLOBAL_VAR=window.myConfig -it ghcr.io/d-tw/autoenv-nginx:latest
 ```

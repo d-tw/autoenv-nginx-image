@@ -8,6 +8,7 @@ const config = {
     entry: {
         autoenv: './src/autoenv.ts',
         configureNginx: './src/configureNginx.ts',
+        injectConfig: './src/injectConfig.ts',
     },
     target: 'node',
     mode: 'production',
