@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.2.0...v2.3.0) (2026-01-12)
+
+
+### Bug Fixes
+
+* exclude test files from formatting ([7299138](https://github.com/d-tw/autoenv-nginx-image/commit/72991381d869381c6649800acf016de11fc61889))
+* tests ([c45d462](https://github.com/d-tw/autoenv-nginx-image/commit/c45d46278e18acbc3046718f6c8d4196cc081519))
+
+
+### Features
+
+* all html files get config injection ([e80686a](https://github.com/d-tw/autoenv-nginx-image/commit/e80686ae194713d46bd24f6ab2ff454123bcfe8f))
+
 # [2.2.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.1.1...v2.2.0) (2025-12-22)
 
 
