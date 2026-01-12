@@ -6,5 +6,6 @@
 **/@prisma/*
 
 /test/samples
+/test/html_templates
 
 /.yarn
