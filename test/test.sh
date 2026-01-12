@@ -32,6 +32,10 @@ fetch autoenv-html-default 80 / html
 fetch autoenv-html-custom 80 / html
 fetch autoenv-html-disabled 80 / html
 
+# Test that non-index.html files also get config injected
+/work/wait.sh autoenv-html-multi:80 -t 15
+/usr/bin/curl -o /tmp/received/autoenv-html-multi-about.html http://autoenv-html-multi:80/about.html
+
 # Run diff against expected outputs
 echo "Testing JSON endpoints..."
 json_failed=0

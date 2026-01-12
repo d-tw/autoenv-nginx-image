@@ -10,12 +10,12 @@ const log = (message: string) => {
     console.log(`[injectConfig] ${message}`)
 }
 
-const findIndexFiles = (directory: string): string[] => {
-    const indexFiles: string[] = []
+const findHtmlFiles = (directory: string): string[] => {
+    const htmlFiles: string[] = []
 
     if (!existsSync(directory)) {
         log(`Search directory does not exist: ${directory}`)
-        return indexFiles
+        return htmlFiles
     }
 
     const searchDirectory = (dir: string) => {
@@ -28,8 +28,8 @@ const findIndexFiles = (directory: string): string[] => {
 
                 if (stat.isDirectory()) {
                     searchDirectory(fullPath)
-                } else if (item === 'index.html') {
-                    indexFiles.push(fullPath)
+                } else if (item.endsWith('.html')) {
+                    htmlFiles.push(fullPath)
                 }
             }
         } catch (error) {
@@ -38,7 +38,7 @@ const findIndexFiles = (directory: string): string[] => {
     }
 
     searchDirectory(directory)
-    return indexFiles
+    return htmlFiles
 }
 
 const injectConfigIntoHtml = (htmlPath: string, config: any) => {
@@ -108,25 +108,25 @@ const main = () => {
         const config = JSON.parse(configContent)
 
         log(`Loaded config from ${autoenvFsPath}`)
-        log(`Searching for index.html files in ${searchPath}`)
+        log(`Searching for .html files in ${searchPath}`)
 
-        const indexFiles = findIndexFiles(searchPath)
+        const htmlFiles = findHtmlFiles(searchPath)
 
-        if (indexFiles.length === 0) {
-            log(`No index.html files found in ${searchPath}`)
+        if (htmlFiles.length === 0) {
+            log(`No .html files found in ${searchPath}`)
             return
         }
 
-        log(`Found ${indexFiles.length} index.html file(s): ${indexFiles.join(', ')}`)
+        log(`Found ${htmlFiles.length} .html file(s): ${htmlFiles.join(', ')}`)
 
         let successCount = 0
-        for (const indexFile of indexFiles) {
-            if (injectConfigIntoHtml(indexFile, config)) {
+        for (const htmlFile of htmlFiles) {
+            if (injectConfigIntoHtml(htmlFile, config)) {
                 successCount++
             }
         }
 
-        log(`Config injection completed: ${successCount}/${indexFiles.length} files processed successfully`)
+        log(`Config injection completed: ${successCount}/${htmlFiles.length} files processed successfully`)
     } catch (error) {
         log(`Error reading or parsing config file: ${error}`)
         process.exit(1)

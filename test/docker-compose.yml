@@ -84,6 +84,22 @@ services:
         volumes:
             - ./html_templates/disabled.html:/app/index.html
 
+    # Test that all .html files are processed, not just index.html
+    autoenv-html-multi:
+        environment:
+            APP_VAR_1: value_1
+            APP_VAR_2: value_2
+            PORT: 80
+            AUTOENV_INJECT_HTML: true
+        image: ${AUTOENV_IMAGE}
+        networks:
+            - default
+        expose:
+            - 80
+        volumes:
+            - ./html_templates/multi-index.html:/app/index.html
+            - ./html_templates/about.html:/app/about.html
+
     test_runner:
         image: alpine
         depends_on:
@@ -93,6 +109,7 @@ services:
             - autoenv-html-default
             - autoenv-html-custom
             - autoenv-html-disabled
+            - autoenv-html-multi
         networks:
             - default
         volumes:
