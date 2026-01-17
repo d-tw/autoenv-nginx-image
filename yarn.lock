@@ -1156,10 +1156,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^17.0.7":
+"@types/node@npm:*":
   version: 17.0.7
   resolution: "@types/node@npm:17.0.7"
   checksum: 3cb3024f8c12152f609fabadd66d55e1b02f2a1fd61ae859755d493f01f0e15e66f71784e2f1dac57133415083a426effd12210eb4ed4f2a35d190836eb789ae
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^24.9.1":
+  version: 24.9.1
+  resolution: "@types/node@npm:24.9.1"
+  dependencies:
+    undici-types: ~7.16.0
+  checksum: f32abf3f89f51587238997787242873df6be5081afbd0f4f33354913c939262aa979a7c7693a4ad676843cdb65c03c71565e5aade08a7a699eb001bda98abe1e
   languageName: node
   linkType: hard
 
@@ -2018,7 +2027,7 @@ __metadata:
     "@swc/helpers": ^0.3.2
     "@types/gulp": ^4.0.9
     "@types/lodash": ^4.17.16
-    "@types/node": ^17.0.7
+    "@types/node": ^24.9.1
     "@types/rimraf": ^3.0.2
     "@typescript-eslint/eslint-plugin": ^5.9.0
     "@typescript-eslint/parser": ^5.9.0
@@ -8530,6 +8539,13 @@ __metadata:
     last-run: ^2.0.0
     undertaker-registry: ^2.0.0
   checksum: c952508f664a03bff20fd21211e7ee67fd8e86d9b26f1aefe30e126834e1730e1cc0a3691e76d099fa1b474721f24831c3f7586ff7aef3268e0b6ad2d8521bd9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.16.0":
+  version: 7.16.0
+  resolution: "undici-types@npm:7.16.0"
+  checksum: 1ef68fc6c5bad200c8b6f17de8e5bc5cfdcadc164ba8d7208cd087cfa8583d922d8316a7fd76c9a658c22b4123d3ff847429185094484fbc65377d695c905857
   languageName: node
   linkType: hard
 
