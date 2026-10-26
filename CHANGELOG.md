@@ -1,3 +1,11 @@
+## [2.3.2](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.1...v2.3.2) (2026-10-26)
+
+
+### Bug Fixes
+
+* bump nginx:alpine base and apk pins for CVE refresh ([2862692](https://github.com/d-tw/autoenv-nginx-image/commit/2862692f71c22537dc6b6d6a3258e4e32c7bdbc9))
+* update base image, apk pins and npm deps to resolve vulnerabilities ([6022fda](https://github.com/d-tw/autoenv-nginx-image/commit/6022fdab536e47232858c8c37d02f6606dfafd5f))
+
 ## [2.3.1](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.0...v2.3.1) (2026-04-27)
 
 
