@@ -1,4 +1,4 @@
-FROM nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de
+FROM nginx:alpine@sha256:2db7d28517d1fba17c2da3210395f7be11a11b419246ad0da2edf782af72f367
 
 RUN apk add --update --no-cache bash=5.3.3-r1 nodejs=24.14.1-r0
 
