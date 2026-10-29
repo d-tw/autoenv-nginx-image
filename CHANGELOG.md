@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.2...v2.3.3) (2026-10-29)
+
+
+### Bug Fixes
+
+* bump base image and pin brotli-libs 1.2.1-r0 for CVE-2026-111497 ([f2b5da3](https://github.com/d-tw/autoenv-nginx-image/commit/f2b5da3e83744d04b6f350bd28130960b48d5720))
+
 ## [2.3.2](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.1...v2.3.2) (2026-10-26)
 
 
