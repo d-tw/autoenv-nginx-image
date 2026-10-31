@@ -1,11 +1,12 @@
 import webpackConfig from './webpack.config'
 import webpack from 'webpack'
-import rimraf from 'rimraf'
 import { series } from 'gulp'
-import { spawn } from 'child_process'
+import { execFile, spawn } from 'child_process'
 import { forEach } from 'lodash'
 import { version, author, repository } from './package.json'
 import fs from 'fs/promises'
+import os from 'os'
+import path from 'path'
 
 export const buildWebpack = async () => {
     return new Promise<void>((resolve, reject) => {
@@ -46,20 +47,16 @@ type GitInfo = {
     branch?: string | undefined
 }
 
+const git = (...args: string[]): Promise<string> =>
+    new Promise((resolve, reject) => {
+        execFile('git', args, (err, stdout) => (err ? reject(err) : resolve(stdout.trim())))
+    })
+
 const getGitInfo = async (): Promise<GitInfo> => {
-    const rev = (await fs.readFile('.git/HEAD')).toString().trim()
-    if (rev.indexOf(':') === -1) {
-        return {
-            hash: rev,
-        }
-    } else {
-        const hash = (await fs.readFile('.git/' + rev.substring(5))).toString().trim()
-        const branch = rev.substring(16)
-        return {
-            hash,
-            branch,
-        }
-    }
+    const hash = await git('rev-parse', 'HEAD')
+    const branch = await git('rev-parse', '--abbrev-ref', 'HEAD')
+
+    return branch === 'HEAD' ? { hash } : { hash, branch }
 }
 
 type Labels = 'created' | 'version' | 'authors' | 'url' | 'source' | 'revision' | 'title' | 'description'
@@ -123,9 +120,7 @@ const buildx = async (push = false) => {
         args.push('--tag', `${registry}:${tag}`)
     }
 
-    if (push) {
-        args.push('--push')
-    }
+    args.push(push ? '--push' : '--load')
 
     args.push('-f', 'Dockerfile')
     args.push('dist')
@@ -146,15 +141,7 @@ export const pushContainer = async () => {
 pushContainer.displayName = 'push-container'
 
 export const clean = async () => {
-    return new Promise<void>((resolve, reject) => {
-        rimraf('./dist', err => {
-            if (err === undefined || err === null) {
-                resolve()
-            } else {
-                reject(err)
-            }
-        })
-    })
+    return fs.rm('./dist', { recursive: true, force: true })
 }
 
 export const build = series(clean, buildWebpack)
@@ -170,5 +157,13 @@ export const test = async () => {
 
     const image = `${registry}:${version}`
 
-    return run('docker-compose', args, { AUTOENV_IMAGE: image })
+    // The containers rewrite the mounted HTML in place, so give them a throwaway copy
+    const templatesDir = await fs.mkdtemp(path.join(os.tmpdir(), 'autoenv-html-'))
+    await fs.cp('test/html_templates', templatesDir, { recursive: true })
+
+    try {
+        return await run('docker', ['compose', ...args], { AUTOENV_IMAGE: image, HTML_TEMPLATES_DIR: templatesDir })
+    } finally {
+        await fs.rm(templatesDir, { recursive: true, force: true })
+    }
 }

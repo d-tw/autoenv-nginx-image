@@ -20,7 +20,10 @@ const main = async () => {
         throw new Error('Undefined config path')
     }
 
-    fs.writeFile(configPath, templateFn(templateArgs))
+    await fs.writeFile(configPath, templateFn(templateArgs))
 }
 
-main()
+main().catch(error => {
+    console.error(error)
+    process.exit(1)
+})
