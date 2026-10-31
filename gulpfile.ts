@@ -112,7 +112,6 @@ const buildx = async (push = false) => {
 
     switch (gitInfo.branch) {
         case 'main':
-        case 'master':
             tags.push('latest')
     }
 

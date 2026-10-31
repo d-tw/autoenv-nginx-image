@@ -5,10 +5,10 @@ on:
     pull_request:
         types: [opened, synchronize, reopened, ready_for_review, edited]
 
-    # When we merge into master
+    # When we merge into main
     push:
         branches:
-            - master
+            - main
 
 # Create a concurrency group based on the event name (push/pull_request) and the branch name
 concurrency: ci-${{ github.event_name }}-${{ github.ref_name }}

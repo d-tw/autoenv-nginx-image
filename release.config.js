@@ -2,7 +2,7 @@ const buildContainersCmd = 'yarn gulp push-container'
 
 module.exports = {
     dryRun: false,
-    branches: [{ name: 'master', channel: 'master' }],
+    branches: [{ name: 'main', channel: 'main' }],
     plugins: [
         [
             '@semantic-release/commit-analyzer',
