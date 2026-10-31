@@ -10,18 +10,18 @@ updates:
               dependency-type: development
               update-types: [minor, patch]
       assignees:
-          - 'd_tw'
+          - 'd-tw'
     - directory: /
       package-ecosystem: github-actions
       open-pull-requests-limit: 5
       schedule:
           interval: weekly
       assignees:
-          - 'd_tw'
+          - 'd-tw'
     - directory: /
       package-ecosystem: docker
       open-pull-requests-limit: 5
       schedule:
           interval: weekly
       assignees:
-          - 'd_tw'
+          - 'd-tw'
