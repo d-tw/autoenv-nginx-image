@@ -70,6 +70,9 @@ jobs:
             - name: Run docker builds
               run: yarn build:container
 
+            - name: Run integration tests
+              run: yarn test
+
             - name: Run semantic-release
               run: yarn semantic-release
               env:
