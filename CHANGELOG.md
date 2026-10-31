@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.3...v2.3.4) (2026-10-31)
+
+
+### Bug Fixes
+
+* escape injected config, await nginx config write and harden nginx headers ([a4f28f2](https://github.com/d-tw/autoenv-nginx-image/commit/a4f28f21b52c9251283d91186b0e18a184accbb7))
+
 ## [2.3.3](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.2...v2.3.3) (2026-10-29)
 
 
