@@ -344,19 +344,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cspotcode/source-map-consumer@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
-  checksum: 10/dfe1399712e4d54e1d53b0c7782f929647ff8675c37ae7637ce2ffdbcc8bad06fea969bcbec6147e7ea70a89257cfc86695a3702c1946a1c334454480937b966
-  languageName: node
-  linkType: hard
-
-"@cspotcode/source-map-support@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@cspotcode/source-map-support@npm:0.7.0"
+"@cspotcode/source-map-support@npm:^0.8.0":
+  version: 0.8.1
+  resolution: "@cspotcode/source-map-support@npm:0.8.1"
   dependencies:
-    "@cspotcode/source-map-consumer": "npm:0.8.0"
-  checksum: 10/d58b31640c4b1438c0caf8ed7eb46647674c042a625919660d9fb2d76f3621875520082934bae88ef54a75d53e8f9cafb506160bb02403a19e7155aa5f4ac59b
+    "@jridgewell/trace-mapping": "npm:0.3.9"
+  checksum: 10/b6e38a1712fab242c86a241c229cf562195aad985d0564bd352ac404be583029e89e93028ffd2c251d2c407ecac5fb0cbdca94a2d5c10f29ac806ede0508b3ff
   languageName: node
   linkType: hard
 
@@ -540,7 +533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/resolve-uri@npm:^3.1.0":
+"@jridgewell/resolve-uri@npm:^3.0.3, @jridgewell/resolve-uri@npm:^3.1.0":
   version: 3.1.2
   resolution: "@jridgewell/resolve-uri@npm:3.1.2"
   checksum: 10/97106439d750a409c22c8bff822d648f6a71f3aa9bc8e5129efdc36343cd3096ddc4eeb1c62d2fe48e9bdd4db37b05d4646a17114ecebd3bbcacfa2de51c3c1d
@@ -557,10 +550,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jridgewell/sourcemap-codec@npm:^1.4.10":
+  version: 1.6.0
+  resolution: "@jridgewell/sourcemap-codec@npm:1.6.0"
+  checksum: 10/eb53fbf7eb4051302a599d6b91425f381168b2856f321336fb00852cea1e0c1904af2610c157b1535e94a61caa98f0bd068d1d0394dd46adf9e9c45c4e11af91
+  languageName: node
+  linkType: hard
+
 "@jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.5.0":
   version: 1.5.5
   resolution: "@jridgewell/sourcemap-codec@npm:1.5.5"
   checksum: 10/5d9d207b462c11e322d71911e55e21a4e2772f71ffe8d6f1221b8eb5ae6774458c1d242f897fb0814e8714ca9a6b498abfa74dfe4f434493342902b1a48b33a5
+  languageName: node
+  linkType: hard
+
+"@jridgewell/trace-mapping@npm:0.3.9":
+  version: 0.3.9
+  resolution: "@jridgewell/trace-mapping@npm:0.3.9"
+  dependencies:
+    "@jridgewell/resolve-uri": "npm:^3.0.3"
+    "@jridgewell/sourcemap-codec": "npm:^1.4.10"
+  checksum: 10/83deafb8e7a5ca98993c2c6eeaa93c270f6f647a4c0dc00deb38c9cf9b2d3b7bf15e8839540155247ef034a052c0ec4466f980bf0c9e2ab63b97d16c0cedd3ff
   languageName: node
   linkType: hard
 
@@ -2280,13 +2290,13 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.8"
     fork-ts-checker-webpack-plugin: "npm:^9.1.0"
     globals: "npm:^17.13.0"
-    gulp: "npm:^5.0.0"
+    gulp: "npm:^5.0.1"
     husky: "npm:^9"
     lodash: "npm:^4.18.1"
     prettier: "npm:^3.9.10"
     semantic-release: "npm:^25.0.9"
     swc-loader: "npm:^0.2.7"
-    ts-node: "npm:^10.4.0"
+    ts-node: "npm:^10.9.2"
     tslib: "npm:^2.9.1"
     typescript: "npm:^6"
     typescript-eslint: "npm:^8.72.1"
@@ -4043,9 +4053,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-stream@npm:^8.0.0":
-  version: 8.0.2
-  resolution: "glob-stream@npm:8.0.2"
+"glob-stream@npm:^8.0.3":
+  version: 8.0.4
+  resolution: "glob-stream@npm:8.0.4"
   dependencies:
     "@gulpjs/to-absolute-glob": "npm:^4.0.0"
     anymatch: "npm:^3.1.3"
@@ -4055,7 +4065,7 @@ __metadata:
     is-negated-glob: "npm:^1.0.0"
     normalize-path: "npm:^3.0.0"
     streamx: "npm:^2.12.5"
-  checksum: 10/cda46c02b6313d4a5cd0a3e67c7a2bd477d5f708904dc761c0d6364611f188a303051ec4e0cd405597522c7f7ffbba530f147754b4bf5af9f18e970c024734d8
+  checksum: 10/a40741656c5a8529f164a9844f01c0c840f4e5939c8ff143af5bbf073e77212b380820e59b743b6c7b64bec2121ff098e00f30d9aad4a4e99e5afb1a13a8858f
   languageName: node
   linkType: hard
 
@@ -4164,16 +4174,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-cli@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "gulp-cli@npm:3.0.0"
+"gulp-cli@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "gulp-cli@npm:3.1.0"
   dependencies:
     "@gulpjs/messages": "npm:^1.1.0"
     chalk: "npm:^4.1.2"
     copy-props: "npm:^4.0.0"
     gulplog: "npm:^2.2.0"
     interpret: "npm:^3.1.1"
-    liftoff: "npm:^5.0.0"
+    liftoff: "npm:^5.0.1"
     mute-stdout: "npm:^2.0.0"
     replace-homedir: "npm:^2.0.0"
     semver-greatest-satisfied-range: "npm:^2.0.0"
@@ -4182,21 +4192,21 @@ __metadata:
     yargs: "npm:^16.2.0"
   bin:
     gulp: bin/gulp.js
-  checksum: 10/19c8dd8e716480800bc94c7bb0804f006b35686b1fb00ad8b41471058fb73e459444c81093585b32cad449db4d6e200dc7c8d0620e6b35549a2c06191900f3b4
+  checksum: 10/de1b4b3c097dcf6c228ed42f0d30e37d1199565419059fee3500bfbcfeacbc54fa9be5f711c8f7c6093061b8ca759b2c6385f743b3a6e73139664e1c711c12fd
   languageName: node
   linkType: hard
 
-"gulp@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "gulp@npm:5.0.0"
+"gulp@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "gulp@npm:5.0.1"
   dependencies:
     glob-watcher: "npm:^6.0.0"
-    gulp-cli: "npm:^3.0.0"
+    gulp-cli: "npm:^3.1.0"
     undertaker: "npm:^2.0.0"
-    vinyl-fs: "npm:^4.0.0"
+    vinyl-fs: "npm:^4.0.2"
   bin:
     gulp: bin/gulp.js
-  checksum: 10/d093ce9fbfb711d9a39635c9928dc2ebf502164358d6aa2e092f2d33ec76c16ecf8c959f4d1b7c924fc087af9cfb6fcfc1a8d0cb2a4604409e4fd17e26307dd4
+  checksum: 10/1be3f024ba9aff790ccfbe8d9397baeb1bbabdfb66e25fe295e38e8efb540d40399ba1e383efb8f248d245cf62838a91e14eb940dc5e7b4dbad826ef71ca0498
   languageName: node
   linkType: hard
 
@@ -5111,9 +5121,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"liftoff@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "liftoff@npm:5.0.0"
+"liftoff@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "liftoff@npm:5.0.1"
   dependencies:
     extend: "npm:^3.0.2"
     findup-sync: "npm:^5.0.0"
@@ -5122,7 +5132,7 @@ __metadata:
     is-plain-object: "npm:^5.0.0"
     rechoir: "npm:^0.8.0"
     resolve: "npm:^1.20.0"
-  checksum: 10/97aab6ed2a0ad069abcfc125dabddeff65b2054d2660bcda85e20e7e5a89f338340f05e651e48eece8816a7e4d1a4ef4757af097919171b903b00dacdbdfc94b
+  checksum: 10/52b3fb62bb2c28163a7fb8b04d3dc6958642163ba6a0b45975ff264381e7dcb22defcc8e041af58df872491bc104d5ac49f68fa1c4955bef58cf33c486dc3894
   languageName: node
   linkType: hard
 
@@ -7677,11 +7687,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.4.0":
-  version: 10.4.0
-  resolution: "ts-node@npm:10.4.0"
+"ts-node@npm:^10.9.2":
+  version: 10.9.2
+  resolution: "ts-node@npm:10.9.2"
   dependencies:
-    "@cspotcode/source-map-support": "npm:0.7.0"
+    "@cspotcode/source-map-support": "npm:^0.8.0"
     "@tsconfig/node10": "npm:^1.0.7"
     "@tsconfig/node12": "npm:^1.0.7"
     "@tsconfig/node14": "npm:^1.0.0"
@@ -7692,6 +7702,7 @@ __metadata:
     create-require: "npm:^1.1.0"
     diff: "npm:^4.0.1"
     make-error: "npm:^1.1.1"
+    v8-compile-cache-lib: "npm:^3.0.1"
     yn: "npm:3.1.1"
   peerDependencies:
     "@swc/core": ">=1.2.50"
@@ -7706,10 +7717,11 @@ __metadata:
   bin:
     ts-node: dist/bin.js
     ts-node-cwd: dist/bin-cwd.js
+    ts-node-esm: dist/bin-esm.js
     ts-node-script: dist/bin-script.js
     ts-node-transpile-only: dist/bin-transpile.js
     ts-script: dist/bin-script-deprecated.js
-  checksum: 10/5874ac27f66b684b24aa199105d347a8fa3e037b8737ff5918a2f94175ad0df5e426bb2f0f37727cdfdb4b15886d336c31fa1c28c71a4912fee0cddead02fc42
+  checksum: 10/a91a15b3c9f76ac462f006fa88b6bfa528130dcfb849dd7ef7f9d640832ab681e235b8a2bc58ecde42f72851cc1d5d4e22c901b0c11aa51001ea1d395074b794
   languageName: node
   linkType: hard
 
@@ -7983,6 +7995,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"v8-compile-cache-lib@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "v8-compile-cache-lib@npm:3.0.1"
+  checksum: 10/88d3423a52b6aaf1836be779cab12f7016d47ad8430dffba6edf766695e6d90ad4adaa3d8eeb512cc05924f3e246c4a4ca51e089dccf4402caa536b5e5be8961
+  languageName: node
+  linkType: hard
+
 "v8flags@npm:^4.0.0":
   version: 4.0.1
   resolution: "v8flags@npm:4.0.1"
@@ -8031,12 +8050,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vinyl-fs@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "vinyl-fs@npm:4.0.0"
+"vinyl-fs@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "vinyl-fs@npm:4.0.2"
   dependencies:
     fs-mkdirp-stream: "npm:^2.0.1"
-    glob-stream: "npm:^8.0.0"
+    glob-stream: "npm:^8.0.3"
     graceful-fs: "npm:^4.2.11"
     iconv-lite: "npm:^0.6.3"
     is-valid-glob: "npm:^1.0.0"
@@ -8047,9 +8066,9 @@ __metadata:
     streamx: "npm:^2.14.0"
     to-through: "npm:^3.0.0"
     value-or-function: "npm:^4.0.0"
-    vinyl: "npm:^3.0.0"
+    vinyl: "npm:^3.0.1"
     vinyl-sourcemap: "npm:^2.0.0"
-  checksum: 10/22ae47c018600e6973b8a0a0c098927b09f60c4963cc5f717be04e774215774aa15ea97400803483d3dadafc5cff1a6744c3a2ab0322528234dc4e93ae1a55aa
+  checksum: 10/18815bb9018b22f0c79e2686cc2e308905930246f432f47e7f450bc6c7c295c5717bbba38a4278ec8e7087cb1effe95c8d552051cb92f64e5b05607ccc9a9706
   languageName: node
   linkType: hard
 
@@ -8077,6 +8096,18 @@ __metadata:
     replace-ext: "npm:^2.0.0"
     teex: "npm:^1.0.1"
   checksum: 10/3371947a92c4b65c7adb944b22586480ffc723ec62347d09b64e593193cb523ce5f472d52549f0e0bbfa82db6c320cae46739461594b0602bba0419d0d7800fb
+  languageName: node
+  linkType: hard
+
+"vinyl@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "vinyl@npm:3.0.1"
+  dependencies:
+    clone: "npm:^2.1.2"
+    remove-trailing-separator: "npm:^1.1.0"
+    replace-ext: "npm:^2.0.0"
+    teex: "npm:^1.0.1"
+  checksum: 10/437f0f38d6a954a64ec067ffa144c3193ca1d9c8e967000abfb217d067f60a268b94515ae13d298f4577593f5fccbab67c12252b9af285ca53c621d6f7b9ddc3
   languageName: node
   linkType: hard
 
