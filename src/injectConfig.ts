@@ -41,10 +41,19 @@ const findHtmlFiles = (directory: string): string[] => {
     return htmlFiles
 }
 
-const injectConfigIntoHtml = (htmlPath: string, config: any) => {
+// Escape characters that could terminate the inline <script> or break JS parsing
+const serialise = (config: unknown): string =>
+    JSON.stringify(config)
+        .replace(/</g, '\\u003c')
+        .replace(/>/g, '\\u003e')
+        .replace(/&/g, '\\u0026')
+        .replace(/\u2028/g, '\\u2028')
+        .replace(/\u2029/g, '\\u2029')
+
+const injectConfigIntoHtml = (htmlPath: string, config: unknown) => {
     try {
         const htmlContent = readFileSync(htmlPath, 'utf-8')
-        const configScript = `<script>${globalVarName} = ${JSON.stringify(config)};</script>`
+        const configScript = `<script>${globalVarName} = ${serialise(config)};</script>`
 
         // Check if config has already been injected
         if (htmlContent.includes(globalVarName)) {
@@ -56,19 +65,19 @@ const injectConfigIntoHtml = (htmlPath: string, config: any) => {
 
         // Try to inject before </head>
         if (htmlContent.includes('</head>')) {
-            modifiedContent = htmlContent.replace('</head>', `${configScript}\n</head>`)
+            modifiedContent = htmlContent.replace('</head>', () => `${configScript}\n</head>`)
 
             // If no </head>, try to inject after <head>
         } else if (htmlContent.includes('<head>')) {
-            modifiedContent = htmlContent.replace('<head>', `<head>\n${configScript}`)
+            modifiedContent = htmlContent.replace('<head>', () => `<head>\n${configScript}`)
 
             // If no <head> tags, try to inject after <html>
         } else if (htmlContent.includes('<html>')) {
-            modifiedContent = htmlContent.replace('<html>', `<html>\n${configScript}`)
+            modifiedContent = htmlContent.replace('<html>', () => `<html>\n${configScript}`)
 
             // As a fallback, inject at the very beginning of the body or document
         } else if (htmlContent.includes('<body>')) {
-            modifiedContent = htmlContent.replace('<body>', `<body>\n${configScript}`)
+            modifiedContent = htmlContent.replace('<body>', () => `<body>\n${configScript}`)
 
             // Last resort: inject at the beginning of the file
         } else {

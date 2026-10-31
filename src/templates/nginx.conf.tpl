@@ -18,6 +18,7 @@ http {
 
     sendfile on;
     keepalive_timeout 65;
+    server_tokens off;
 
     # Expires map
     map $sent_http_content_type $expires {
@@ -38,10 +39,13 @@ http {
 
         expires $expires;
 
+        add_header X-Content-Type-Options nosniff always;
+
         location <%= autoenvHttpPath %> {
             alias <%= autoenvFsPath %>;
             default_type application/json;
             add_header Cache-Control "no-cache, no-store, must-revalidate";
+            add_header X-Content-Type-Options nosniff always;
             add_header Pragma "no-cache";
             add_header Expires "0";
         }
@@ -56,6 +60,7 @@ http {
         location = /index.html {
             root /app;
             add_header Cache-Control "no-cache, no-store, must-revalidate";
+            add_header X-Content-Type-Options nosniff always;
             add_header Pragma "no-cache";
             add_header Expires "0";
             add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
@@ -63,6 +68,7 @@ http {
 
         # Handle SPA routes - everything else falls back to index.html
         location / {
+            add_header X-Content-Type-Options nosniff always;
             add_header Set-Cookie "_env=<%= environment %>; Path=/; SameSite=Lax";
             root /app;
             try_files $uri /index.html;

@@ -1,10 +1,10 @@
-#! /bin/sh
+#!/bin/sh
 
 set -e
 set -x
 
 # Install deps
-apk add curl bash
+apk add curl bash jq
 
 mkdir /tmp/received
 
@@ -31,6 +31,7 @@ fetch autoenv-port-test 8080 __autoenv
 fetch autoenv-html-default 80 / html
 fetch autoenv-html-custom 80 / html
 fetch autoenv-html-disabled 80 / html
+fetch autoenv-html-escape 80 / html
 
 # Test that non-index.html files also get config injected
 /work/wait.sh autoenv-html-multi:80 -t 15
@@ -43,7 +44,10 @@ for expected in /work/samples/*.json; do
     filename=$(basename "$expected")
     received="/tmp/received/$filename"
     if [ -f "$received" ]; then
-        if ! diff -u "$expected" "$received"; then
+        # Compare with sorted keys, as env var ordering is not stable
+        jq -S . "$expected" > /tmp/expected.json
+        jq -S . "$received" > /tmp/received.json
+        if ! diff -u /tmp/expected.json /tmp/received.json; then
             echo "ERROR: JSON file $filename differs from expected!"
             json_failed=1
         fi

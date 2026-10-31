@@ -4,8 +4,6 @@ on:
     # For pull requests
     pull_request:
         types: [opened, synchronize, reopened, ready_for_review, edited]
-        branches:
-            - master
 
     # When we merge into master
     push:
