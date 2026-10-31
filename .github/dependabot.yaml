@@ -1,17 +1,26 @@
 version: 2
 updates:
     - directory: /
-      open-pull-requests-limit: 5
       package-ecosystem: npm
-      rebase-strategy: auto
+      open-pull-requests-limit: 5
+      schedule:
+          interval: weekly
+      groups:
+          dev-dependencies:
+              dependency-type: development
+              update-types: [minor, patch]
+      assignees:
+          - 'd_tw'
+    - directory: /
+      package-ecosystem: github-actions
+      open-pull-requests-limit: 5
       schedule:
           interval: weekly
       assignees:
           - 'd_tw'
     - directory: /
+      package-ecosystem: docker
       open-pull-requests-limit: 5
-      package-ecosystem: github-actions
-      rebase-strategy: auto
       schedule:
           interval: weekly
       assignees:
