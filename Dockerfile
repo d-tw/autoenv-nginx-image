@@ -1,6 +1,6 @@
 FROM nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606
 
-RUN apk add --update --no-cache bash=5.3.9-r1 nodejs=24.22.1-r0 brotli-libs=1.2.1-r0
+RUN apk add --no-cache bash=5.3.9-r1 nodejs=24.22.1-r1 brotli-libs=1.2.1-r0
 
 ARG PORT=8080
 ARG AUTOENV_OUTPUT_DIR=/usr/share/nginx/autoenv
