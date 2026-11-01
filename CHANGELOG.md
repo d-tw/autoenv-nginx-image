@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.0...v3.0.1) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** patch vulnerable transitive dependencies ([4734059](https://github.com/d-tw/autoenv-nginx-image/commit/4734059bac2aee6a36ed5ca768884bdeae766340))
+
 # [3.0.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.4...v3.0.0) (2026-11-01)
 
 
