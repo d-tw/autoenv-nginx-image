@@ -1515,19 +1515,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 17.0.7
-  resolution: "@types/node@npm:17.0.7"
-  checksum: 10/26e20bc0b92365fb8d37062a31acb9bd605457c804fb3c8b4dc5eae3b1d9ff555daa87e116c10205066fcdd7b70642d83dcc32418dcfff0ae3efb7bfd3f7ebf1
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^26":
-  version: 26.6.5
-  resolution: "@types/node@npm:26.6.5"
+"@types/node@npm:*, @types/node@npm:^26":
+  version: 26.6.6
+  resolution: "@types/node@npm:26.6.6"
   dependencies:
     undici-types: "npm:~8.9.0"
-  checksum: 10/03780cc68280b566af47c0f673318e665258dbdcc953737a83c11593424d55aecb8b2642a573da33f76cb4dd5457379548388b78ab284cb3b762030e5d58b252
+  checksum: 10/07c6c6fc1f5cc89c700ac9ebcebd42b000fef234bf0b80e9461a8f077105f15faf16df95b83745e0c0e37338d1fbc28cb402ef27b5787fd7a57b492c926ff7ae
   languageName: node
   linkType: hard
 
