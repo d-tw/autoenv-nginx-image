@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.4...v3.0.0) (2026-11-01)
+
+
+* feat!: add AUTOENV_MODE with autoenv and file modes, stop exposing PORT ([00fb5b4](https://github.com/d-tw/autoenv-nginx-image/commit/00fb5b4a664fdff3d9d29610665569309c830af5))
+
+
+### BREAKING CHANGES
+
+* PORT and the prefixed PORT key are no longer included in the exposed config. nginx still reads PORT from the environment.
+
 ## [2.3.4](https://github.com/d-tw/autoenv-nginx-image/compare/v2.3.3...v2.3.4) (2026-10-31)
 
 
