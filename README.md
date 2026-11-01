@@ -105,13 +105,18 @@ COPY --from=build-stage /app/dist /app
 
 By default, the HTTP path is configured to `/__autoenv`, but this can be changed by setting the `AUTOENV_HTTP_PATH` environment variable when launching the container.
 
-**Exposed Environment Variables**
+**Mode**
 
-By default, all of the environment variables with the prefix `APP_` will be exposed, but this can be changed by setting the `AUTOENV_PREFIX` environment variable when launching the container.
+The source of the exposed config is selected with the `AUTOENV_MODE` environment variable (default: `autoenv`). An unknown mode stops the container from starting.
+
+- `autoenv`: expose environment variables matching a prefix. All variables with the prefix `APP_` are exposed by default; set `AUTOENV_PREFIX` to change it.
+- `file`: serve the contents of a JSON file as-is. Set `AUTOENV_FILE` to the path of a file containing a JSON object (mount it into the container). The container fails to start if the file is missing or isn't a valid JSON object.
+
+Everything exposed is publicly readable, so don't include secrets.
 
 **HTTP Port**
 
-By default, nginx listens on port 80, but this can be changed by setting the `PORT` environment variable when launching the container.
+By default, nginx listens on port 80, but this can be changed by setting the `PORT` environment variable when launching the container. The port is not included in the exposed config.
 
 **HTML Injection**
 

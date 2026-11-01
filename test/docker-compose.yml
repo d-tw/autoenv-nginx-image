@@ -37,6 +37,20 @@ services:
         expose:
             - 80
 
+    autoenv-file:
+        environment:
+            AUTOENV_MODE: file
+            AUTOENV_FILE: /config/config.json
+            APP_VAR_1: value_1
+            PORT: 80
+        image: ${AUTOENV_IMAGE}
+        networks:
+            - default
+        expose:
+            - 80
+        volumes:
+            - ./file_fixtures/config.json:/config/config.json
+
     # HTML injection test containers
     autoenv-html-default:
         environment:
@@ -118,6 +132,7 @@ services:
             - autoenv-default
             - autoenv-port-test
             - autoenv-custom
+            - autoenv-file
             - autoenv-html-default
             - autoenv-html-custom
             - autoenv-html-disabled

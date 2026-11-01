@@ -25,6 +25,7 @@ fetch () {
 # Retrieve configs
 fetch autoenv-default 80 __autoenv
 fetch autoenv-custom 80 __myvars
+fetch autoenv-file 80 __autoenv
 fetch autoenv-port-test 8080 __autoenv
 
 # Retrieve HTML files with injected configs
