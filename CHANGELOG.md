@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.1...v3.0.2) (2026-11-02)
+
+
+### Bug Fixes
+
+* upgrade alpine packages to patch curl CVEs ([1a5bb7b](https://github.com/d-tw/autoenv-nginx-image/commit/1a5bb7b73c8cb7fe353a07f44c66b4f99a7d741e))
+
 ## [3.0.1](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.0...v3.0.1) (2026-11-01)
 
 
