@@ -32,11 +32,6 @@ jobs:
                   fetch-depth: 0
                   token: ${{ secrets.CI }}
 
-            - name: Lint commit messages
-              uses: wagoid/commitlint-github-action@v6.2.1
-              with:
-                  failOnWarnings: true
-
             - uses: amannn/action-semantic-pull-request@v6.1.1
               if: github.event_name == 'pull_request'
               env:
@@ -57,6 +52,14 @@ jobs:
 
             - name: Install dependencies
               run: yarn install
+
+            # Use the repo's pinned commitlint so CI matches the local husky hook.
+            # --strict fails on warnings as well as errors.
+            - name: Lint commit messages
+              run: yarn commitlint --from "$FROM" --to "$TO" --strict --verbose
+              env:
+                  FROM: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+                  TO: ${{ github.sha }}
 
             - name: Run formatter
               run: yarn format:check
