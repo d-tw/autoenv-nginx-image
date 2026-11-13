@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.2...v3.0.3) (2026-11-13)
+
+
+### Bug Fixes
+
+* bump pinned nodejs apk version ([a49a3df](https://github.com/d-tw/autoenv-nginx-image/commit/a49a3df2627b3093abd8573564cfb049d5cd4d9f))
+
 ## [3.0.2](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.1...v3.0.2) (2026-11-02)
 
 
