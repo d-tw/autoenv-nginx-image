@@ -1,6 +1,6 @@
 {
     "name": "autoenv-nginx-image",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "repository": "https://github.com/d-tw/autoenv-nginx-image",
     "author": "Douglas Willcocks <douglas@d-tw.org>",
     "license": "MIT",
