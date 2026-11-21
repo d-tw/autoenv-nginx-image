@@ -37,7 +37,7 @@
         "gulp": "^5.0.1",
         "husky": "^9",
         "prettier": "^3.10.1",
-        "semantic-release": "^25.0.9",
+        "semantic-release": "^26.0.1",
         "swc-loader": "^0.2.7",
         "ts-node": "^10.9.2",
         "typescript": "npm:@typescript/typescript6@^6.0.2",
