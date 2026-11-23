@@ -1,3 +1,9 @@
+## [3.0.5](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.4...v3.0.5) (2026-11-23)
+
+### Bug Fixes
+
+* bump base image to rebuild with patched openssl and libxml2 ([2694cd6](https://github.com/d-tw/autoenv-nginx-image/commit/2694cd610a04a05a409d4203e86acc75d660fcb0))
+
 ## [3.0.4](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.3...v3.0.4) (2026-11-14)
 
 ## [3.0.3](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.2...v3.0.3) (2026-11-13)
