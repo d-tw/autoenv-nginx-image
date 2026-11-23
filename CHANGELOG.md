@@ -1,3 +1,9 @@
+## [3.0.6](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.5...v3.0.6) (2026-11-23)
+
+### Bug Fixes
+
+* resolve minimatch 9.x to 11 to patch globparts DoS ([aa67295](https://github.com/d-tw/autoenv-nginx-image/commit/aa67295fe6b753db1899b5712bd66925cd5ef501))
+
 ## [3.0.5](https://github.com/d-tw/autoenv-nginx-image/compare/v3.0.4...v3.0.5) (2026-11-23)
 
 ### Bug Fixes
