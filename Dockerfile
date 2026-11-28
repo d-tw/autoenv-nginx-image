@@ -1,4 +1,4 @@
-FROM nginx:alpine@sha256:fb4658584bd9a916ffb6f6e365f97c25cfdb2923801f551ea08356e695f14ff7
+FROM nginx:alpine@sha256:7fc0fb4af7bf006aeb31aea88069976060f8f0a0a86b667126742cc17f4e31ae
 
 RUN apk upgrade --no-cache && apk add --no-cache bash=5.3.9-r1 nodejs=24.22.3-r0 brotli-libs=1.2.1-r0
 
